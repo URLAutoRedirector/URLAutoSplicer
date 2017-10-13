@@ -1,0 +1,24 @@
+{
+    "name": "URLAutoSplicer",
+    "version": "1.0.0",
+    "description": "Construct URL with context selection and go",
+    "options_page": "options.html",
+    "icons": {
+        "128": "icon.png"
+    },
+    "permissions": [
+        "contextMenus",
+        "storage"
+    ],
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "service.js"
+        ]
+    },
+    "browser_action": {
+        "name": "options",
+        "default_icon": "icon.png"
+    },
+    "manifest_version": 2
+}
