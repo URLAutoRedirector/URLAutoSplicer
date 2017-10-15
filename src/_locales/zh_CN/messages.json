@@ -1,0 +1,71 @@
+{
+  "ext_name": {
+    "message": "URL Auto Redirector"
+  },
+  "ext_description": {
+    "message": "根据右键菜单构建 URL 并且跳转。"
+  },
+  "options_page_title": {
+    "message": "选项"
+  },
+  "options_rules": {
+    "message": "规则"
+  },
+  "rule_name": {
+    "message": "名称"
+  },
+  "rule_pattern": {
+    "message": "URL 规则"
+  },
+  "rule_enable": {
+    "message": "启用"
+  },
+  "rule_delete": {
+    "message": "删除"
+  },
+  "btn_new": {
+    "message": "新增"
+  },
+  "btn_reset": {
+    "message": "重置"
+  },
+  "btn_import": {
+    "message": "导入"
+  },
+  "btn_export": {
+    "message": "导出"
+  },
+  "import_error_no_file": {
+    "message": "错误：请选择一个文件。"
+  },
+  "import_error_no_rule": {
+    "message": "错误：文件里没有规则。"
+  },
+  "import_success": {
+    "message": "导入成功！"
+  },
+  "title_enable": {
+    "message": "启用/禁用"
+  },
+  "title_delete": {
+    "message": "删除规则"
+  },
+  "confirm_delete": {
+    "message": "确认删除规则？"
+  },
+  "confirm_reset": {
+    "message": "确认重置全部规则？\n当您确认执行完本次操作后，所有现有规则将会被删除，并重置成初始安装的状态。"
+  },
+  "about": {
+    "message": "关于"
+  },
+  "copyright": {
+    "message": "版权所有"
+  },
+  "official_page": {
+    "message": "访问我们的官方主页。"
+  },
+  "contribute": {
+    "message": "贡献"
+  }
+}

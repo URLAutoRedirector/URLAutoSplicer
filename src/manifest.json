@@ -1,24 +1,23 @@
 {
-    "name": "URLAutoSplicer",
-    "version": "1.0.0",
-    "description": "Construct URL with context selection and go",
-    "options_page": "options.html",
-    "icons": {
-        "128": "icon.png"
-    },
-    "permissions": [
-        "contextMenus",
-        "storage"
-    ],
-    "background": {
-        "persistent": false,
-        "scripts": [
-            "service.js"
-        ]
-    },
-    "browser_action": {
-        "name": "options",
-        "default_icon": "icon.png"
-    },
-    "manifest_version": 2
+  "name": "URL Auto Splicer",
+  "short_name": "URLAutoSplicer",
+  "version": "1.0.0",
+  "description": "__MSG_ext_description__",
+  "author": "David Zhang",
+  "homepage_url": "https://urlautoredirector.github.io/URLAutoSplicer/",
+  "options_page": "options.html",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "content_security_policy": "script-src 'self' https://platform.twitter.com; object-src 'self'",
+  "default_locale": "en",
+  "manifest_version": 2
 }

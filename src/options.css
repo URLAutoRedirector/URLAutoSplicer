@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  color: #484848;
+  word-wrap: break-word;
+  text-align: center;
+  background-color: white;
+}
+nav {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-radius: 4px;
+  background-color: #329af0;
+  color: #fff;
+}
+
+#banner {
+  height: 70px;
+  font-size: 40px;
+}
+
+#content {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 800px;
+  color: #484848;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.general {
+  text-align: left;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #329af0;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+footer {
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #329af0;
+}
+h3 {
+  font-size: 24px;
+}
+input {
+  padding-left: 4px;
+}
+.btn-rule {
+  margin-top: 12px;
+  height: 30px;
+  width: 80px;
+  border: 0;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #329af0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rule-item {
+  background-color: #ffffff;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.rule-head {
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.rule-title {
+  float: left;
+  height: 24px;
+}
+
+.icon {
+  padding-top: 8px;
+  font-size: 16px;
+}
+
+.title-drag {
+  margin-right: 4px;
+  width: 20px;
+}
+
+.title-name {
+  margin-right: 16px;
+  width: 200px;
+}
+
+.title-pattern {
+  margin-right: 16px;
+  width: 410px;
+}
+
+.title-is-enabled {
+  width: 60px;
+}
+
+.title-is-deleted {
+  width: 60px;
+}
+
+.drag-item {
+  width: 24px;
+  cursor: move;
+}
+
+.name {
+  font-size: 16px;
+  margin-right: 12px;
+  width: 200px;
+  height: 24px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #329af0;
+}
+
+.pattern {
+  font-size: 16px;
+  margin-right: 12px;
+  width: 410px;
+  height: 24px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #329af0;
+}
+
+.is-enabled {
+  width: 60px;
+  height: 24px;
+  text-align: center;
+}
+
+.is-deleted {
+  width: 60px;
+  height: 24px;
+  text-align: center;
+}
+
+#upload-rule {
+  width: 244px;
+}
+
+.btn-share{
+  margin-right: 10px;
+  float: left;
+}
