@@ -1,4 +1,10 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/URLAutoRedirector/URLAutoSplicer/master/src/images/icon-128.png" alt="Logo">
+</p>
+
 # URLAutoSplicer
+
+<a href="https://chrome.google.com/webstore/detail/url-auto-splicer/kmlnjaeipdljbegfnfofknfaeojgojgm"><img src="https://img.shields.io/chrome-web-store/v/kmlnjaeipdljbegfnfofknfaeojgojgm.svg" alt="Chrome WebStore"></a>
 
 Construct URL with context selection and go.
 
@@ -10,7 +16,7 @@ URLAutoSplicer is based on my former project [Tieba Service Caller](https://gith
 
 ## Installation
 
-Download at [__Chrome WebStore__]()
+Download at [__Chrome WebStore__](https://chrome.google.com/webstore/detail/url-auto-splicer/kmlnjaeipdljbegfnfofknfaeojgojgm)
 
 Alternative: Clone this project, then load ```src``` folder in ```developer mode```.
 
