@@ -43,11 +43,16 @@ $(document).ready(function(){
           return;
         }
         for (var i = 0; i < numOfRules; i++ ) {
+          var name = rulesJSON[i].name;
           var pattern = rulesJSON[i].pattern;
           var isDeleted = false;
           var isEnabled = rulesJSON[i].isEnabled;
 
-          rules.push({"pattern":pattern, "isEnabled": isEnabled});
+          rules.push({
+            name: name,
+            pattern: pattern,
+            isEnabled: isEnabled
+          });
         }
         setOptions();
         $(".rule-item").remove();
@@ -119,11 +124,16 @@ function gatherRulesOnForm() {
   var numOfRules = $(".rule-item").length;
   rules = [];
   for (var i = 0; i < numOfRules; i++ ) {
-    var pattern = $(".pattern:eq("+i+")").val();
-    var isDeleted = $(".is-deleted:eq("+i+")").data("is-deleted");
-    var isEnabled = $(".is-enabled:eq("+i+")").data("is-enabled");
+    var name = $(".name:eq(" + i + ")").val();
+    var pattern = $(".pattern:eq(" + i + ")").val();
+    var isDeleted = $(".is-deleted:eq(" + i + ")").data("is-deleted");
+    var isEnabled = $(".is-enabled:eq(" + i + ")").data("is-enabled");
     if (!isDeleted) {
-      rules.push({"pattern":pattern, "isEnabled": isEnabled});
+      rules.push({
+        name: name,
+        pattern: pattern,
+        isEnabled: isEnabled
+      });
     }
   }
 }
@@ -162,11 +172,12 @@ function newRuleItem(name, pattern, isEnabled) {
   var title_delete = chrome.i18n.getMessage("title_delete");
   var ruleItemHTML = "<li class=\"rule-item\">" +
                      "<div title=\"Drag item to reorder\" class=\"icon icon-bars drag-item\"></div>" +
-                     "<input type=\"text\" class=\"name\" value=" + name + ">" +
+                     "<input type=\"text\" class=\"name\" value=\"" + name + "\">" +
                      "<input type=\"text\" class=\"pattern\" value=" + pattern + ">" +
                      "<div title=\"" + title_enable + "\" data-is-enabled=\"" + isEnabled + "\" class=\"icon " + (isEnabled ? "icon-toggle-on" : "icon-toggle-off") + " is-enabled\"></div>" +
                      "<div title=\"" + title_delete + "\" data-is-deleted=\"false\" class=\"icon icon-ban is-deleted\"></div>" +
                      "</li>";
+                     console.log(ruleItemHTML);
   return ruleItemHTML;
 }
 
@@ -194,6 +205,7 @@ function setInterface() {
 
   $(document).attr("title", title);
   $(".rules-label").text(rules);
+  $(".title-name").text(rule_name);
   $(".title-pattern").text(rule_pattern);
   $(".title-enable").text(rule_enable);
   $(".title-is-deleted").text(rule_delete);
