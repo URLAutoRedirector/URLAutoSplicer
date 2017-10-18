@@ -6,8 +6,6 @@
 
 <a href="https://chrome.google.com/webstore/detail/url-auto-splicer/kmlnjaeipdljbegfnfofknfaeojgojgm"><img src="https://img.shields.io/chrome-web-store/v/kmlnjaeipdljbegfnfofknfaeojgojgm.svg" alt="Chrome WebStore"></a>
 
-Construct URL with context selection and go.
-
 ## Introduction
 
 URLAutoSplicer is a simple Chrome Extension, which construct URL with context selection and go instantly.
