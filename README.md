@@ -8,9 +8,9 @@
 
 ## Introduction
 
-URLAutoSplicer is a simple Chrome Extension, which constructs URL with context selection and go instantly.
+URLAutoSplicer is a simple Chrome Extension, which redirects you to self-constructed URL instantly with context selection.
 
-URLAutoSplicer is inspired by my former tool [Tieba Service Caller](https://github.com/crisp-archive/chrome_tieba_service_caller).
+The initial idea of URLAutoSplicer comes from my former tool [Tieba Service Caller](https://github.com/crisp-archive/chrome_tieba_service_caller). It allows developers to call API with context selection when they are developing and debugging.
 
 ## Installation
 
