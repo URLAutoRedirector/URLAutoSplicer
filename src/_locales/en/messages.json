@@ -1,9 +1,9 @@
 {
   "ext_name": {
-    "message": "URL Auto Redirector"
+    "message": "URL Auto Splicer"
   },
   "ext_description": {
-    "message": "Construct URL with context selection and go."
+    "message": "Redirect you to self-constructed URL instantly with context selection"
   },
   "options_page_title": {
     "message": "Options"
