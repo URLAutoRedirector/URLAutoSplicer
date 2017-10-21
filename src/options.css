@@ -1,40 +1,36 @@
 body {
-  margin: 0;
+  background-color: #fff;
+  color: #484848;
   font-family: -apple-system, BlinkMacSystemFont, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
-  color: #484848;
-  word-wrap: break-word;
+  margin: 0;
   text-align: center;
-  background-color: white;
+  word-wrap: break-word;
 }
 
 nav {
-  margin-left: auto;
-  margin-right: auto;
-  width: 800px;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-radius: 4px;
   background-color: #329af0;
+  border-radius: 4px;
   color: #fff;
-}
-
-#banner {
-  height: 70px;
-  font-size: 40px;
-}
-
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+  margin: 20px auto 0;
+  padding-top: 20px;
   width: 800px;
+}
+
+.banner {
+  font-size: 40px;
+  height: 70px;
+}
+
+.content {
   color: #484848;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin: 20px auto 0;
+  width: 800px;
 }
 
 .general {
@@ -43,33 +39,36 @@ nav {
 }
 
 a {
-  text-decoration: none;
   color: #329af0;
+  text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
+
 footer {
-  font-size: 14px;
-  margin-top: 20px;
-  margin-bottom: 20px;
   color: #329af0;
+  font-size: 14px;
+  margin: 20px 0;
 }
+
 h3 {
   font-size: 24px;
 }
+
 input {
   padding-left: 4px;
 }
+
 .btn-rule {
-  margin-top: 12px;
-  height: 30px;
-  width: 80px;
+  background-color: #329af0;
   border: 0;
   border-radius: 4px;
   font-size: 14px;
-  background-color: #329af0;
+  height: 30px;
+  margin-top: 12px;
+  width: 80px;
 }
 
 ul {
@@ -81,17 +80,17 @@ ul {
 .rule-item {
   background-color: #ffffff;
   border: 0;
-  margin: 0;
-  padding: 0;
   display: inline-flex;
   justify-content: flex-start;
+  margin: 0;
+  padding: 0;
 }
 
 .rule-head {
-  width: 100%;
-  height: 30px;
   font-size: 16px;
   font-weight: bold;
+  height: 30px;
+  width: 100%;
 }
 
 .rule-title {
@@ -100,8 +99,8 @@ ul {
 }
 
 .icon {
-  padding-top: 8px;
   font-size: 16px;
+  padding-top: 8px;
 }
 
 .title-drag {
@@ -128,42 +127,42 @@ ul {
 }
 
 .drag-item {
-  width: 24px;
   cursor: move;
+  width: 24px;
 }
 
 .name {
-  font-size: 16px;
-  margin-right: 12px;
-  width: 200px;
-  height: 24px;
-  border-top: 0;
+  border-bottom: 1px solid #329af0;
   border-left: 0;
   border-right: 0;
-  border-bottom: 1px solid #329af0;
+  border-top: 0;
+  font-size: 16px;
+  height: 24px;
+  margin-right: 12px;
+  width: 200px;
 }
 
 .pattern {
-  font-size: 16px;
-  margin-right: 12px;
-  width: 420px;
-  height: 24px;
-  border-top: 0;
+  border-bottom: 1px solid #329af0;
   border-left: 0;
   border-right: 0;
-  border-bottom: 1px solid #329af0;
+  border-top: 0;
+  font-size: 16px;
+  height: 24px;
+  margin-right: 12px;
+  width: 420px;
 }
 
 .is-enabled {
-  width: 60px;
   height: 24px;
   text-align: center;
+  width: 60px;
 }
 
 .is-deleted {
-  width: 60px;
   height: 24px;
   text-align: center;
+  width: 60px;
 }
 
 #upload-rule {
@@ -171,6 +170,6 @@ ul {
 }
 
 .btn-share{
-  margin-right: 10px;
   float: left;
+  margin-right: 10px;
 }
