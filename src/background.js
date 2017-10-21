@@ -15,8 +15,7 @@ var defaultOptions = {
 
 var rules;
 
-function getOptions(callback)
-{
+function getOptions(callback) {
   chrome.storage.local.get("options", function(data){
     rules = data.options.rules;
     callback();
