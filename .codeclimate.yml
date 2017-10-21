@@ -1,0 +1,18 @@
+engines:
+  csslint:
+    enabled: true
+  duplication:
+    enabled: false
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths:
+    - "**.css"
+    - "**.js"
+exclude_paths:
+- "src/lib/"
+- "src/font/"
+- "src/_locales"
+- "src/images"

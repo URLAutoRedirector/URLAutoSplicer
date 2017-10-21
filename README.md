@@ -4,7 +4,8 @@
 
 # URLAutoSplicer
 
-<a href="https://chrome.google.com/webstore/detail/url-auto-splicer/kmlnjaeipdljbegfnfofknfaeojgojgm"><img src="https://img.shields.io/chrome-web-store/v/kmlnjaeipdljbegfnfofknfaeojgojgm.svg" alt="Chrome WebStore"></a>
+[![Chrome WebStore](https://img.shields.io/chrome-web-store/v/kmlnjaeipdljbegfnfofknfaeojgojgm.svg)](https://chrome.google.com/webstore/detail/url-auto-splicer/kmlnjaeipdljbegfnfofknfaeojgojgm)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4e85b78754baa5672875/maintainability)](https://codeclimate.com/github/URLAutoRedirector/URLAutoSplicer/maintainability)
 
 ## Introduction
 
