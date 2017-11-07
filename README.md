@@ -21,7 +21,21 @@ Alternative: Clone this project, then load ```src``` folder in ```developer mode
 
 ## Documentation
 
-TODO
+### Invoke UAS
+
+After installation, UAS will create context menu named with "URL Auto Splicer". You may select any texts displayed on web page, and use right-click to show context menu. All the available rules (/#Rules) will be shown as sub menus of "URL Auto Splicer". It would be invoked if you had clicked a specific item.
+
+### Rules
+
+We have only one rule (Google Search) as an example, which has the same reaction to Chrome "Search Google for".
+
+To add a new rule, you may specify a unique name and its URL Pattern. The URL Pattern should be a standard URL or a URL with `%UAS_PARAM%`.
+
+Only one parameter `%UAS_PARAM%` is available. 
+
+Hint: Protocols (e.g. `https://`) cannot be omitted.
+
+We encourage users to share rules by `Export` `Import` rules.
 
 ## Contributing
 
