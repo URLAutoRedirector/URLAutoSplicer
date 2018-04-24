@@ -1,5 +1,5 @@
 // URLAutoSplicer
-// Copyright (c) David Zhang, 2017
+// Copyright (c) David Zhang, 2018
 
 var defaultOptions = {
   options: {
