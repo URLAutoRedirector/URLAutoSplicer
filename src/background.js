@@ -16,13 +16,13 @@ var defaultOptions = {
 var rules;
 
 function getOptions(callback) {
-  chrome.storage.local.get("options", function(data){
+  chrome.storage.local.get("options", function(data) {
     rules = data.options.rules;
     callback();
   });
 }
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.type == "syncOptions") {
     rules = request.options.options.rules;
   }
@@ -37,7 +37,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     var msg = {
       type: "reloadOptions"
     };
-    chrome.runtime.sendMessage(msg, function(response){
+    chrome.runtime.sendMessage(msg, function(response) {
       console.log("Send msg[reloadOptions]");
     });
   }
@@ -97,7 +97,7 @@ getOptions(function() {
 
 chrome.contextMenus.onClicked.addListener(onClickHandler);
 
-chrome.runtime.onInstalled.addListener(function(){
+chrome.runtime.onInstalled.addListener(function() {
   generateContextMenu(defaultOptions.options.rules);
   chrome.storage.local.set(defaultOptions);
 });

@@ -3,15 +3,15 @@
 
 var rules = [];
 
-$(document).ready(function(){
+$(document).ready(function() {
   // i18n UI
   setInterface();
   // new rule button
-  $("#new-rule").click(function(){
+  $("#new-rule").click(function() {
     $("#rule-list").append(newRuleItem("", "", true));
   });
   // reset rule button
-  $("#reset-rule").click(function(){
+  $("#reset-rule").click(function() {
     var confirmReset = chrome.i18n.getMessage("confirm_reset");
     var r = confirm(confirmReset);
     if (r == true) {
@@ -19,19 +19,18 @@ $(document).ready(function(){
       var msg = {
         type: "resetRules"
       };
-      chrome.runtime.sendMessage(msg, function(response){
+      chrome.runtime.sendMessage(msg, function(response) {
         console.log("Send msg[resetRules]");
       });
     }
   });
   // import rule button
-  $("#import-rule").click(function(){
+  $("#import-rule").click(function() {
     var importedFile = $("#upload-rule").prop("files");
     if (importedFile.length == 0) {
       alert(chrome.i18n.getMessage("import_error_no_file"));
       return;
-    }
-    else {
+    } else {
       var reader = new FileReader();
       reader.readAsText(importedFile[0], "UTF-8");
       reader.onload = function(evt) {
@@ -62,7 +61,7 @@ $(document).ready(function(){
     }
   });
   // export rule button
-  $("#export-rule").click(function(){
+  $("#export-rule").click(function() {
     var rulesString = JSON.stringify(rules);
     var blob = new Blob([rulesString]);
 
@@ -84,12 +83,11 @@ $(document).ready(function(){
   });
 });
 
-$(document).on("click", ".is-enabled", function(){
+$(document).on("click", ".is-enabled", function() {
   if ($(this).data("is-enabled") == true) {
     $(this).data("is-enabled", false);
     $(this).attr("class", "icon icon-toggle-off is-enabled");
-  }
-  else if ($(this).data("is-enabled") == false) {
+  } else if ($(this).data("is-enabled") == false) {
     $(this).data("is-enabled", true);
     $(this).attr("class", "icon icon-toggle-on is-enabled");
   }
@@ -97,7 +95,7 @@ $(document).on("click", ".is-enabled", function(){
   setOptions();
 });
 
-$(document).on("click", ".is-deleted", function(){
+$(document).on("click", ".is-deleted", function() {
   var confirmDelete = chrome.i18n.getMessage("confirm_delete");
   var r = confirm(confirmDelete);
   if (r == true) {
@@ -109,12 +107,12 @@ $(document).on("click", ".is-deleted", function(){
   }
 });
 
-$(document).on("change", ".rule-item>input[type='text']", function(){
+$(document).on("change", ".rule-item>input[type='text']", function() {
   gatherRulesOnForm();
   setOptions();
 });
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.type == "reloadOptions") {
     getOptions(showOptions);
   }
@@ -149,13 +147,13 @@ function setOptions() {
     type: "syncOptions",
     options: newOptions
   };
-  chrome.runtime.sendMessage(msg, function(response){
+  chrome.runtime.sendMessage(msg, function(response) {
     console.log("Send msg[syncOptions]");
   });
 }
 
 function getOptions(callback) {
-  chrome.storage.local.get("options", function(data){
+  chrome.storage.local.get("options", function(data) {
     rules = data.options.rules;
     callback();
   });
