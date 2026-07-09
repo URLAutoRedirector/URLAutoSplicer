@@ -1,7 +1,7 @@
 // URLAutoSplicer
-// Copyright (c) David Zhang, 2018
+// Copyright (c) David Zhang, 2026
 
-var defaultOptions = {
+const defaultOptions = {
   options: {
     rules: [
       {
@@ -11,93 +11,80 @@ var defaultOptions = {
       }
     ]
   }
-}
-
-var rules;
-
-function getOptions(callback) {
-  chrome.storage.local.get("options", function(data) {
-    rules = data.options.rules;
-    callback();
-  });
-}
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.type == "syncOptions") {
-    rules = request.options.options.rules;
-  }
-  if (request.type == "resetRules") {
-    var newOptions = {
-      options: {
-        rules: defaultOptions["options"]["rules"]
-      }
-    }
-    rules = defaultOptions["options"]["rules"];
-    chrome.storage.local.set(newOptions);
-    var msg = {
-      type: "reloadOptions"
-    };
-    chrome.runtime.sendMessage(msg, function(response) {
-      console.log("Send msg[reloadOptions]");
-    });
-  }
-  generateContextMenu(rules);
-});
+};
 
 function generateContextMenu(rules) {
-  var contexts = ["selection"];
-  chrome.contextMenus.removeAll();
-  // create parent
-  chrome.contextMenus.create({
-    title: "URL Auto Splicer",
-    id: "root",
-    contexts: contexts
-  });
-  for (var i in rules) {
-    if (rules[i].isEnabled) {
+  const contexts = ["selection"];
+
+  chrome.contextMenus.removeAll(function() {
+    chrome.contextMenus.create({
+      title: chrome.i18n.getMessage("ext_name"),
+      id: "root",
+      contexts: contexts
+    });
+
+    rules.forEach(function(rule, index) {
+      if (!rule.isEnabled) {
+        return;
+      }
+
       chrome.contextMenus.create({
-        title: rules[i].name,
-        id: i,
+        title: rule.name,
+        id: String(index),
         parentId: "root",
         contexts: contexts
       });
-    }
-  }
-}
-
-function parseQuery(info) {
-  var menuId = info.menuItemId;
-  var input = info.selectionText;
-  if (input.length == 0 || menuId == "root") {
-    return;
-  }
-  for (var i in rules) {
-    if (i == parseInt(menuId)) {
-      console.log(rules[i].name + "matched.");
-      var pattern = rules[i].pattern;
-      var url = pattern.replace("%UAS_PARAM%", input);
-      chrome.tabs.create({
-        "url": url
-      });
-      return;
-    }
-  }
-}
-
-function onClickHandler(info, _tab) {
-  chrome.storage.local.get("options", function(data) {
-    rules = data.options.rules;
-    parseQuery(info);
+    });
   });
 }
 
-getOptions(function() {
-  console.log("getOption Done");
+function getRules(callback) {
+  chrome.storage.local.get("options", function(data) {
+    const options = data.options || defaultOptions.options;
+    callback(Array.isArray(options.rules) ? options.rules : defaultOptions.options.rules);
+  });
+}
+
+function refreshContextMenu() {
+  getRules(generateContextMenu);
+}
+
+function openRule(info, rules) {
+  const menuId = String(info.menuItemId);
+  const input = info.selectionText || "";
+
+  if (!input || menuId === "root") {
+    return;
+  }
+
+  const rule = rules[Number(menuId)];
+  if (!rule || !rule.isEnabled) {
+    return;
+  }
+
+  const url = rule.pattern.replace("%UAS_PARAM%", input);
+  chrome.tabs.create({url: url});
+}
+
+chrome.contextMenus.onClicked.addListener(function(info) {
+  getRules(function(rules) {
+    openRule(info, rules);
+  });
 });
 
-chrome.contextMenus.onClicked.addListener(onClickHandler);
+chrome.runtime.onInstalled.addListener(function(details) {
+  if (details.reason === "install") {
+    chrome.storage.local.set(defaultOptions);
+    return;
+  }
 
-chrome.runtime.onInstalled.addListener(function() {
-  generateContextMenu(defaultOptions.options.rules);
-  chrome.storage.local.set(defaultOptions);
+  refreshContextMenu();
+});
+
+chrome.runtime.onStartup.addListener(refreshContextMenu);
+
+chrome.storage.onChanged.addListener(function(changes, areaName) {
+  if (areaName === "local" && changes.options) {
+    refreshContextMenu();
+  }
 });
