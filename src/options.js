@@ -1,5 +1,5 @@
 // URLAutoSplicer
-// Copyright (c) David Zhang, 2018
+// Copyright (c) David Zhang, 2026
 
 var rules = [];
 
@@ -16,11 +16,13 @@ $(document).ready(function() {
     var r = confirm(confirmReset);
     if (r == true) {
       $(".rule-item").remove();
-      var msg = {
-        type: "resetRules"
-      };
-      chrome.runtime.sendMessage(msg, function(response) {
-        console.log("Send msg[resetRules]");
+      rules = [{
+        name: "Search with Google",
+        pattern: "https://google.com/search?q=%UAS_PARAM%",
+        isEnabled: true
+      }];
+      setOptions(function() {
+        showOptions();
       });
     }
   });
@@ -112,12 +114,6 @@ $(document).on("change", ".rule-item>input[type='text']", function() {
   setOptions();
 });
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.type == "reloadOptions") {
-    getOptions(showOptions);
-  }
-});
-
 function gatherRulesOnForm() {
   var numOfRules = $(".rule-item").length;
   rules = [];
@@ -136,25 +132,18 @@ function gatherRulesOnForm() {
   }
 }
 
-function setOptions() {
+function setOptions(callback) {
   var newOptions = {
     "options": {
       "rules": rules
     }
-  }
-  chrome.storage.local.set(newOptions);
-  var msg = {
-    type: "syncOptions",
-    options: newOptions
   };
-  chrome.runtime.sendMessage(msg, function(response) {
-    console.log("Send msg[syncOptions]");
-  });
+  chrome.storage.local.set(newOptions, callback);
 }
 
 function getOptions(callback) {
   chrome.storage.local.get("options", function(data) {
-    rules = data.options.rules;
+    rules = data.options && Array.isArray(data.options.rules) ? data.options.rules : [];
     callback();
   });
 }
@@ -197,7 +186,7 @@ function setInterface() {
   var btn_export = chrome.i18n.getMessage("btn_export");
   // about
   var about      = chrome.i18n.getMessage("about");
-  var copyright  = chrome.i18n.getMessage("copyright") + " &copy; <a target=\"_blank\" href=\"https://crispgm.com/\">David Zhang</a>, 2017.";
+  var copyright  = chrome.i18n.getMessage("copyright") + " &copy; <a target=\"_blank\" href=\"https://crispgm.com/\">David Zhang</a>, 2026.";
   var home       = "<a target=\"_blank\" href=\"https://urlautoredirector.github.io/URLAutoSplicer/\">" + chrome.i18n.getMessage("official_page") + "</a>";
   var contribute = chrome.i18n.getMessage("contribute") + " <a target=\"_blank\" href=\"https://github.com/UrlAutoRedirector/URLAutoSplicer\">GitHub - URLAutoSplicer</a>.";
 
