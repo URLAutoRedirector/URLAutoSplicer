@@ -17,9 +17,7 @@ The initial idea of URLAutoSplicer comes from my former tool [Tieba Service Call
 
 Download at [__Chrome WebStore__](https://chrome.google.com/webstore/detail/url-auto-splicer/kmlnjaeipdljbegfnfofknfaeojgojgm)
 
-Alternative: clone this project, open `chrome://extensions`, enable Developer
-mode, choose **Load unpacked**, and select the `src` folder. The extension uses
-Manifest V3.
+Alternative: clone this project, open `chrome://extensions`, enable Developer mode, choose **Load unpacked**, and select the `src` folder.
 
 ## Documentation
 
